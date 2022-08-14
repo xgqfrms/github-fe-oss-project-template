@@ -1,6 +1,10 @@
 name: 'github fe oss project template'
 author: 'xgqfrms'
 description: 'github front-end open source software project template'
+# fix: Improve your Action by adding labels for icon and color.
+branding:
+  icon: 'type'
+  color: 'blue'
 
 runs:
   using: 'node16'
