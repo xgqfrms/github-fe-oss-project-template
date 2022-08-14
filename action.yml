@@ -1,0 +1,7 @@
+name: 'github fe oss project template'
+author: 'xgqfrms'
+description: 'github front-end open source software project template'
+
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
