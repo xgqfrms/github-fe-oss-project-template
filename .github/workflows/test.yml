@@ -45,10 +45,10 @@ jobs:
           ghToken: ${{secrets.GITHUB_TOKEN}}
       # run other actions
       - name: Run dev Action ⭐️⭐️
-        uses: ./dev.yml
+        uses: ./dev
         with:
           name: 'xgqfrms-github'
       - name: Run custom-deploy Action ⭐️⭐️⭐️
-        uses: ./custom-deploy.yml
+        uses: ./custom-deploy
         with:
           name: 'xgqfrms-github'
