@@ -64,3 +64,10 @@ $ npm i @actions/core @actions/github
 https://docs.github.com/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request
 
 
+
+## test
+
+```sh
+$ npm run build
+
+```

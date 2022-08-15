@@ -29,13 +29,14 @@ jobs:
       - name: Build
         run: npm run build
       # *.yml 文件，自动匹配 action.yml
-      - name: Run default Action
+      - name: Run default Action ⭐️
         # ./ 匹配项目根目录下的所有 *.yml ❌
         # uses: ['./action.yml', './dev.yml', './custom-deploy.yml']
         # uses: ./dev.yml
         # uses: ./custom-deploy.yml
-        uses: ./action.yml
-        # uses: ./
+        # uses: ./action.yml
+        # Error: Can't find 'action.yml', 'action.yaml' or 'Dockerfile' under '/home/runner/work/github-fe-oss-project-template/github-fe-oss-project-template/action.yml'. Did you forget to run actions/checkout before running your local action?
+        uses: ./
         # 使用 with 传递参数给 action.yml
         with:
           # name: 'xgqfrms/webgeeker'
@@ -43,11 +44,11 @@ jobs:
           # 关键字 GITHUB_TOKEN, GitHub 会自动注入，无需手动定义该 secrets；✅
           ghToken: ${{secrets.GITHUB_TOKEN}}
       # run other actions
-      - name: Run dev Action
+      - name: Run dev Action ⭐️⭐️
         uses: ./dev.yml
         with:
           name: 'xgqfrms-github'
-      - name: Run custom-deploy Action
+      - name: Run custom-deploy Action ⭐️⭐️⭐️
         uses: ./custom-deploy.yml
         with:
           name: 'xgqfrms-github'
