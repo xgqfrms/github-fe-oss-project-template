@@ -1,11 +1,10 @@
-name: 'github deploy action'
+name: 'github custom-deploy action'
 author: 'xgqfrms'
-description: 'github deploy action'
+description: 'github custom-deploy action'
 branding:
   icon: 'type'
   color: 'blue'
 
-# ✅ 定义可以接收的输入参数名称: name ghToken
 inputs:
   name:
     description: 'github user name'
@@ -14,4 +13,4 @@ inputs:
 
 runs:
   using: 'node16'
-  main: 'dist/index.js'
+  main: 'dist/deploy.js'

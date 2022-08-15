@@ -30,6 +30,10 @@ jobs:
         run: npm run build
       # *.yml 文件，自动匹配？
       - name: Run my action
+        # ./ 匹配项目根目录下的所有 *.yml ❓
+        # uses: ./action.yml
+        # uses: ./dev.yml
+        # uses: ./custom-deploy.yml
         uses: ./
         # 使用 with 传递参数给 action.yml
         with:
