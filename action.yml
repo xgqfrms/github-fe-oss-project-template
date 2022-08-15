@@ -6,6 +6,16 @@ branding:
   icon: 'type'
   color: 'blue'
 
+# ✅ 定义可以接收的输入参数名称: name ghToken
+inputs:
+  name:
+    description: 'github user name'
+    required: false
+    default: 'xgqfrms'
+  ghToken:
+    description: 'GitHub access token'
+    required: false
+
 runs:
   using: 'node16'
   main: 'dist/index.js'

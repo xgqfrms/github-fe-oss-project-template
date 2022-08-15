@@ -32,6 +32,39 @@ const inputName = getInput("name");
 greet(inputName, getRepoUrl(context));
 
 
+async function getDiff(): Promise<any[]> {
+  if (ghToken && context.payload.pull_request) {
+    // token
+    const octokit = getOctokit(ghToken);
+    // git diff
+    const result = await octokit.rest.repos.compareCommits({
+      repo: context.repo.repo,
+      owner: context.repo.owner,
+      head: context.payload.pull_request.head.sha,
+      base: context.payload.pull_request.base.sha,
+      per_page: 100,
+    });
+    return result.data.files || [];
+  } else {
+    return [];
+  }
+}
+
+const ghToken = getInput(`ghToken`);
+
+getDiff().then(files => {
+  // JSON.stringify(files, null, 4)
+  const result = dedent(`
+    Your PR diff:
+    ${JSON.stringify(files, undefined, 2)}
+  `);
+  log(result);
+});
+
+
+
+
+
 interface Human {
   name: string;
   age: number;
