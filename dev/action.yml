@@ -13,5 +13,5 @@ inputs:
 
 runs:
   using: 'node16'
-  main: 'dist/dev.js'
+  main: '../dist/dev.js'
 
