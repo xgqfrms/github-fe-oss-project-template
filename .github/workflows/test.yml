@@ -10,7 +10,7 @@ on:
 #
 jobs:
   run-action:
-    name: Run action
+    name: Run action ✅
     runs-on: ubuntu-latest
     #
     steps:
@@ -28,16 +28,26 @@ jobs:
       #
       - name: Build
         run: npm run build
-      # *.yml 文件，自动匹配？
-      - name: Run my action
-        # ./ 匹配项目根目录下的所有 *.yml ❓
-        # uses: ./action.yml
+      # *.yml 文件，自动匹配 action.yml
+      - name: Run default Action
+        # ./ 匹配项目根目录下的所有 *.yml ❌
+        # uses: ['./action.yml', './dev.yml', './custom-deploy.yml']
         # uses: ./dev.yml
         # uses: ./custom-deploy.yml
-        uses: ./
+        uses: ./action.yml
+        # uses: ./
         # 使用 with 传递参数给 action.yml
         with:
           # name: 'xgqfrms/webgeeker'
           name: 'xgqfrms-github'
           # 关键字 GITHUB_TOKEN, GitHub 会自动注入，无需手动定义该 secrets；✅
           ghToken: ${{secrets.GITHUB_TOKEN}}
+      # run other actions
+      - name: Run dev Action
+        uses: ./dev.yml
+        with:
+          name: 'xgqfrms-github'
+      - name: Run custom-deploy Action
+        uses: ./custom-deploy.yml
+        with:
+          name: 'xgqfrms-github'
