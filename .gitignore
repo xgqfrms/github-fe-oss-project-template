@@ -38,8 +38,10 @@ bower_components
 build/Release
 
 # Dependency directories
-node_modules/
 jspm_packages/
+# fix: npm dependencies can not find bug ❌
+# https://github.com/Azure/docker-login/issues/3#issuecomment-1219226332
+# node_modules/
 
 # TypeScript v1 declaration files
 typings/
