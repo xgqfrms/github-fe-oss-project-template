@@ -1,6 +1,9 @@
 # github front-end open source software project template
 
 
+https://github-fe-oss-project-template.xgqfrms.xyz
+
+
 > build in many options features
 
 ## CI/CD
